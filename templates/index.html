@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌸 Iris Flower Predictor</h1>
+
+        <p class="subtitle">
+            Discover the species of an Iris flower using Machine Learning
+        </p>
+
+        <form action="/predict" method="POST">
+
+            <div class="input-group">
+                <label>Sepal Length (cm)</label>
+                <input type="number" step="any" name="sepal_length" placeholder="Example: 5.1" required>
+            </div>
+
+            <div class="input-group">
+                <label>Sepal Width (cm)</label>
+                <input type="number" step="any" name="sepal_width" placeholder="Example: 3.5" required>
+            </div>
+
+            <div class="input-group">
+                <label>Petal Length (cm)</label>
+                <input type="number" step="any" name="petal_length" placeholder="Example: 1.4" required>
+            </div>
+
+            <div class="input-group">
+                <label>Petal Width (cm)</label>
+                <input type="number" step="any" name="petal_width" placeholder="Example: 0.2" required>
+            </div>
+
+            <button type="submit">Predict Species</button>
+
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p>The flower belongs to:</p>
+            <h1>{{ prediction }}</h1>
+        </div>
+        {% endif %}
+
+        <footer>
+            Built with Python, Flask and Machine Learning
+        </footer>
+
+    </div>
+
+</body>
+</html>
